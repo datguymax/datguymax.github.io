@@ -10,6 +10,11 @@ body {
   background-size: cover;
 }
 
+img {
+  width: 20px;
+  height: 20px;
+}
+
 table {
   margin: 150px auto;
   background: rgba(255, 255, 255, 0.8);
