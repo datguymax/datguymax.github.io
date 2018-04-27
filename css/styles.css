@@ -1,0 +1,28 @@
+* {
+  font-family: 'Tajawal', sans-serif;
+}
+
+body {
+  background-image: url('https://vignette.wikia.nocookie.net/runescape2/images/e/ee/Nemi_Forest.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+table {
+  margin: 150px auto;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+td, th {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.width-100 {
+  width: 100%;
+}
