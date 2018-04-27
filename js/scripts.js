@@ -28,8 +28,8 @@ function adjustMinMax(el) {
   }
 }
 
-function nemi(level) {
-  return ((2/3)*((level**2)-(2*level)+100));
+function nemi(level, cap) {
+  return ((2/3)*((Math.min(level, cap)**2)-(2*Math.min(level, cap))+100));
 }
 
 function calculateDays() {
@@ -39,6 +39,7 @@ function calculateDays() {
   let tarGoals = ["tb-prayer-goal", "tb-farming-goal", "tb-mining-goal", "tb-dungeoneering-goal"];
   let spnIds = ["spn-days-prayer", "spn-days-farming", "spn-days-mining", "spn-days-dungeoneering"];
   let nodes = [4, 3, 1, 1];
+  let cap = [99, 99, 99, 120];
 
   for (let i = 0; i < 4; i++) {
     let currentXP = parseFloat(document.getElementById(tbIds[i]).value);
@@ -50,30 +51,16 @@ function calculateDays() {
       goal = parseFloat(document.getElementById(tarGoals[i]).value);
     }
     else if (targetType == "level") {
-      goal = calculateXP(parseFloat(document.getElementById(tarGoals[i]).value));
+      goal = getXP(parseFloat(document.getElementById(tarGoals[i]).value));
     }
 
     while (currentXP < goal) {
-      currentXP += nemi(getLevel(currentXP))*nodes[i];
+      for (let j = 0; j < nodes[i]; j++) {
+        currentXP += nemi(getLevel(currentXP), cap[i]);
+      }
       days++;
     }
 
     document.getElementById(spnIds[i]).textContent = days;
-  }
-}
-
-function calculateXP(level) {
-  let xp = 0;
-  for (let n=1; n < level; n++) {
-    xp += Math.floor(n + 300 * 2**(n/7));
-  }
-  return Math.floor(0.25*xp);
-}
-
-function getLevel(xp) {
-  for (let i=1; i<=120; i++) {
-    if (xp < calculateXP(i)) {
-      return i-1;
-    }
   }
 }
