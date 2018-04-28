@@ -1,121 +1,131 @@
 <!doctype html>
 
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
+	<meta charset="utf-8">
 
-  <title>Nemi Calculator</title>
-  <meta name="description" content="Nemi Forest Calculator">
-  <meta name="author" content="Max -- RSN: Max -- IM RSN: DatGuyMax">
+	<title>Nemi Calculator</title>
+	<meta name="description" content="Nemi Forest Calculator">
+	<meta name="author" content="Max -- RSN: Max -- IM RSN: DatGuyMax">
 
-  <link href="https://fonts.googleapis.com/css?family=Tajawal:300,400,500,700" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
-  <script src="js/utility.js"></script>
-  <script src="js/scripts.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Tajawal:300,400,500,700" rel="stylesheet">
+	<link rel="stylesheet" href="css/styles.css">
+	<script src="js/utility.js"></script>
+	<script src="js/scripts.js"></script>
 </head>
 
 <body>
-  <form action="#" method="get" onsubmit="return false;">
-    <table>
-      <tr>
-        <th>
-          <input type="submit" value="Calculate" onclick="calculateDays();" />
-        </th>
-        <th>
-          <div>
-            <img src="https://vignette.wikia.nocookie.net/runescape2/images/2/24/Prayer-icon.png/revision/latest?cb=20120121220329">
-            <span class="header-md">Prayer</span>
-        </div>
-        </th>
-        <th>
-          <div>
-            <img src="https://vignette.wikia.nocookie.net/runescape2/images/f/f0/Farming-icon.png/revision/latest/scale-to-width-down/21?cb=20160127043504">
-            <span class="header-md">Farming</span>
-          </div>
-        </th>
-        <th>
-          <div>
-            <img src="https://vignette.wikia.nocookie.net/runescape2/images/2/28/Mining-icon.png/revision/latest/scale-to-width-down/21?cb=20120122191026">
-            <span class="header-md">Mining</span>
-          </div>
-        </th>
-        <th>
-          <div>
-            <img src="https://vignette.wikia.nocookie.net/runescape2/images/3/3e/Dungeoneering-icon.png/revision/latest?cb=20160127040709">
-            <span class="header-md">Dungeoneering</span>
-          </div>
-        </th>
-      </tr>
-      <tbody>
-        <tr>
-          <td>
-            <span class="header-sm">Current XP</span>
-          </td>
-          <td>
-            <input id="tb-current-prayer-xp" type="number" min="0" max="200000000" value="0">
-          </td>
-          <td>
-            <input id="tb-current-farming-xp" type="number" min="0" max="200000000" value="0">
-          </td>
-          <td>
-            <input id="tb-current-mining-xp" type="number" min="0" max="200000000" value="0">
-          </td>
-          <td>
-            <input id="tb-current-dungeoneering-xp" type="number" min="0" max="200000000" value="0">
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <span class="header-sm">Target</span>
-          </td>
-          <td>
-            <input id="tb-prayer-goal" type="number" min="1" max="120" value="2">
-            <select id="dd-prayer-target-type" onchange="adjustMinMax(this);">
+	<form action="#" method="get" onsubmit="return false;">
+		<table>
+			<tr>
+				<th>
+					<input type="submit" value="Calculate" onclick="calculateDays();" />
+				</th>
+				<th>
+					<div>
+						<img src="https://vignette.wikia.nocookie.net/runescape2/images/2/24/Prayer-icon.png/revision/latest?cb=20120121220329" />
+						<span class="header-md">Prayer</span>
+					</div>
+				</th>
+				<th>
+					<div>
+						<img src="https://vignette.wikia.nocookie.net/runescape2/images/f/f0/Farming-icon.png/revision/latest/scale-to-width-down/21?cb=20160127043504" />
+						<span class="header-md">Farming</span>
+					</div>
+				</th>
+				<th>
+					<div>
+						<img src="https://vignette.wikia.nocookie.net/runescape2/images/2/28/Mining-icon.png/revision/latest/scale-to-width-down/21?cb=20120122191026" />
+						<span class="header-md">Mining</span>
+					</div>
+				</th>
+				<th>
+					<div>
+						<img src="https://vignette.wikia.nocookie.net/runescape2/images/3/3e/Dungeoneering-icon.png/revision/latest?cb=20160127040709" />
+						<span class="header-md">Dungeoneering</span>
+					</div>
+				</th>
+			</tr>
+			<tbody>
+				<tr>
+					<td>
+						<span class="header-sm">Current XP</span>
+					</td>
+					<td>
+						<input id="tb-current-prayer-xp" type="number" min="0" max="200000000" value="0" />
+					</td>
+					<td>
+						<input id="tb-current-farming-xp" type="number" min="0" max="200000000" value="0" />
+					</td>
+					<td>
+						<input id="tb-current-mining-xp" type="number" min="0" max="200000000" value="0" />
+					</td>
+					<td>
+						<input id="tb-current-dungeoneering-xp" type="number" min="0" max="200000000" value="0" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="header-sm">Target</span>
+					</td>
+					<td>
+						<input id="tb-prayer-goal" type="number" min="1" max="120" value="0" />
+						<select id="dd-prayer-target-type" onchange="adjustMinMax(this);">
               <option value="level">Level</option>
               <option value="xp">XP</option>
             </select>
-          </td>
-          <td>
-            <input id="tb-farming-goal" type="number" min="1" max="120" value="2">
-            <select id="dd-farming-target-type" onchange="adjustMinMax(this);">
+					</td>
+					<td>
+						<input id="tb-farming-goal" type="number" min="1" max="120" value="0" />
+						<select id="dd-farming-target-type" onchange="adjustMinMax(this);">
               <option value="level">Level</option>
               <option value="xp">XP</option>
             </select>
-          </td>
-          <td>
-            <input id="tb-mining-goal" type="number" min="1" max="120" value="2">
-            <select id="dd-mining-target-type" onchange="adjustMinMax(this);">
+					</td>
+					<td>
+						<input id="tb-mining-goal" type="number" min="1" max="120" value="0" />
+						<select id="dd-mining-target-type" onchange="adjustMinMax(this);">
               <option value="level">Level</option>
               <option value="xp">XP</option>
             </select>
-          </td>
-          <td>
-            <input id="tb-dungeoneering-goal" type="number" min="1" max="120" value="2">
-            <select id="dd-dungeoneering-target-type" onchange="adjustMinMax(this);">
+					</td>
+					<td>
+						<input id="tb-dungeoneering-goal" type="number" min="1" max="120" value="0" />
+						<select id="dd-dungeoneering-target-type" onchange="adjustMinMax(this);">
               <option value="level">Level</option>
               <option value="xp">XP</option>
             </select>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <span class="header-sm">Days to Goal</span>
-          </td>
-          <td>
-            <span id="spn-days-prayer"></span>
-          </td>
-          <td>
-            <span id="spn-days-farming"></span>
-          </td>
-          <td>
-            <span id="spn-days-mining"></span>
-          </td>
-          <td>
-            <span id="spn-days-dungeoneering"></span>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </form>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="header-sm">Days to Goal</span>
+					</td>
+					<td class="td-days">
+						<span id="spn-days-prayer"></span>
+					</td>
+					<td class="td-days">
+						<span id="spn-days-farming"></span>
+					</td>
+					<td class="td-days">
+						<span id="spn-days-mining"></span>
+					</td>
+					<td class="td-days">
+						<span id="spn-days-dungeoneering"></span>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="4" class="td-name">
+						<input id="tb-username" type="text" placeholder="Username" />
+					</td>
+					<td class="td-get-stats">
+						<input type="button" value="Get Stats" onclick="getStats();" />
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
 </body>
+
 </html>
