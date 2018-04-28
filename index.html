@@ -19,9 +19,7 @@
 	<form action="#" method="get" onsubmit="return false;">
 		<table>
 			<tr>
-				<th>
-					<input type="submit" value="Calculate" onclick="calculateDays();" />
-				</th>
+				<th>&nbsp;</th>
 				<th>
 					<div>
 						<img src="https://vignette.wikia.nocookie.net/runescape2/images/2/24/Prayer-icon.png/revision/latest?cb=20120121220329" />
@@ -49,9 +47,9 @@
 			</tr>
 			<tbody>
 				<tr>
-					<td>
+					<th class="th-side">
 						<span class="header-sm">Current XP</span>
-					</td>
+					</th>
 					<td>
 						<input id="tb-current-prayer-xp" type="number" min="0" max="200000000" value="0" />
 					</td>
@@ -66,32 +64,32 @@
 					</td>
 				</tr>
 				<tr>
-					<td>
+					<th class="th-side">
 						<span class="header-sm">Target</span>
-					</td>
+					</th>
 					<td>
-						<input id="tb-prayer-goal" type="number" min="1" max="120" value="0" />
+						<input id="tb-prayer-goal" type="number" min="1" max="120" value="120" />
 						<select id="dd-prayer-target-type" onchange="adjustMinMax(this);">
               <option value="level">Level</option>
               <option value="xp">XP</option>
             </select>
 					</td>
 					<td>
-						<input id="tb-farming-goal" type="number" min="1" max="120" value="0" />
+						<input id="tb-farming-goal" type="number" min="1" max="120" value="120" />
 						<select id="dd-farming-target-type" onchange="adjustMinMax(this);">
               <option value="level">Level</option>
               <option value="xp">XP</option>
             </select>
 					</td>
 					<td>
-						<input id="tb-mining-goal" type="number" min="1" max="120" value="0" />
+						<input id="tb-mining-goal" type="number" min="1" max="120" value="120" />
 						<select id="dd-mining-target-type" onchange="adjustMinMax(this);">
               <option value="level">Level</option>
               <option value="xp">XP</option>
             </select>
 					</td>
 					<td>
-						<input id="tb-dungeoneering-goal" type="number" min="1" max="120" value="0" />
+						<input id="tb-dungeoneering-goal" type="number" min="1" max="120" value="120" />
 						<select id="dd-dungeoneering-target-type" onchange="adjustMinMax(this);">
               <option value="level">Level</option>
               <option value="xp">XP</option>
@@ -99,9 +97,9 @@
 					</td>
 				</tr>
 				<tr>
-					<td>
+					<th class="th-side">
 						<span class="header-sm">Days to Goal</span>
-					</td>
+					</th>
 					<td class="td-days">
 						<span id="spn-days-prayer"></span>
 					</td>
@@ -116,11 +114,14 @@
 					</td>
 				</tr>
 				<tr>
-					<td colspan="4" class="td-name">
-						<input id="tb-username" type="text" placeholder="Username" />
+					<td colspan="3" class="td-calc-btn">
+						<input class="calc-btn" type="submit" value="Calculate" onclick="calculateDays();" />
+					</td>
+					<td class="td-name">
+						<input id="tb-username" type="text" placeholder="Username" value="Californ1a" />
 					</td>
 					<td class="td-get-stats">
-						<input type="button" value="Get Stats" onclick="getStats();" />
+						<input class="stats-btn" type="button" value="Get Stats" onclick="getStats();" />
 					</td>
 				</tr>
 			</tbody>

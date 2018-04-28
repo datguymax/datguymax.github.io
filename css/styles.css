@@ -17,7 +17,7 @@ img {
 	padding-bottom: 2px;
 }
 
-input[type=number] {
+input[type=number], .td-name {
 	text-align: right;
 }
 
@@ -31,7 +31,8 @@ input[type=number]::-webkit-inner-spin-button:hover, input[type=number]::-webkit
 
 table {
 	margin: 150px auto;
-	background: rgba(255, 255, 255, 0.7);
+	/* background-color: rgba(255, 255, 255, 0.7); */
+	background-color: rgba(160, 200, 160, 0.7);
 }
 
 td, th {
@@ -48,8 +49,38 @@ td, th {
 
 .td-days {
 	text-align: center;
+	/* background-color: rgba(0, 190, 0, 0.2); */
 }
 
-.td-name {
-	text-align: right;
+.th-side {
+	text-align: left;
+}
+
+.td-calc-btn {
+	text-align: center;
+}
+
+.stats-btn, .calc-btn {
+	cursor: pointer;
+}
+
+.calc-btn {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+#tb-current-prayer-xp, #tb-current-farming-xp, #tb-current-mining-xp, #tb-current-dungeoneering-xp {
+	width: 96%
+}
+
+#tb-prayer-goal, #tb-farming-goal {
+	width: 43%;
+}
+
+#tb-mining-goal {
+	width: 55%;
+}
+
+#tb-dungeoneering-goal {
+	width: 53%;
 }
