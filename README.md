@@ -1,2 +1,3 @@
-"# datguymax.github.io" 
-"# datguymax.github.io" 
+# Nemi forest calculator
+
+https://datguymax.github.io/
